@@ -3,6 +3,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import classification_report, confusion_matrix
+import joblib
 
 # ==============================
 # 1. Cargar los datos
@@ -52,3 +53,5 @@ New_Cliente_Scaler = scaler.transform(New_Cliente)
 Prediccion_Nueva = modelo_knn.predict(New_Cliente_Scaler)
 
 print(f"\nPredicción para el nuevo cliente: {Prediccion_Nueva[0]}")
+
+joblib.dump(modelo_knn, "model.pkl")
